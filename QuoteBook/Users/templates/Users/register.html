@@ -1,99 +1,10 @@
-{% extends 'blog/base.html' %} 
+{% extends 'Home/base.html' %} 
 <!-- Or however your template inheritance is set up -->
 
 {% load static %}
 
 {% block content %}
-<div class="container">
-
-  <!-- Outer Row -->
-  <div class="row justify-content-center">
-
-    <div class="col-xl-10 col-lg-12 col-md-9">
-
-      <div class="card o-hidden border-0 shadow-lg my-5">
-        <div class="card-body p-0">
-          <!-- Nested Row within Card Body -->
-          <div class="row">
-            <!-- Optionally add an image in one column, form in the other -->
-            <div class="col-lg-6 d-none d-lg-block bg-register-image"></div>
-            <div class="col-lg-6">
-              <div class="p-5">
-                <div class="text-center">
-                  <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
-                </div>
-                
-                <form method="POST" class="user">
-                  {% csrf_token %}
-                  
-                  <!-- Render Django form fields manually or with form.as_p, etc. -->
-                  <div class="form-group">
-                    {{ form.username.label_tag }}
-                    {{ form.username }}
-                    <!-- The default widget for username is <input>, so let's add classes: -->
-                    <script>
-                      // A quick hack: If you're using default Django form fields, 
-                      // you can override widget attributes in your forms.py 
-                      // or use the "Widget Tweaks" library, etc. 
-                      // For a quick example in the template:
-                      document.addEventListener('DOMContentLoaded', function() {
-                        let uname = document.getElementById("id_username");
-                        if(uname) {
-                          uname.classList.add("form-control", "form-control-user");
-                          uname.setAttribute("placeholder", "Enter Username...");
-                        }
-                      });
-                    </script>
-                  </div>
-                  
-                  <div class="form-group">
-                    {{ form.password1.label_tag }}
-                    {{ form.password1 }}
-                    <script>
-                      document.addEventListener('DOMContentLoaded', function() {
-                        let pw1 = document.getElementById("id_password1");
-                        if(pw1) {
-                          pw1.classList.add("form-control", "form-control-user");
-                          pw1.setAttribute("placeholder", "Enter Password...");
-                        }
-                      });
-                    </script>
-                  </div>
-
-                  <div class="form-group">
-                    {{ form.password2.label_tag }}
-                    {{ form.password2 }}
-                    <script>
-                      document.addEventListener('DOMContentLoaded', function() {
-                        let pw2 = document.getElementById("id_password2");
-                        if(pw2) {
-                          pw2.classList.add("form-control", "form-control-user");
-                          pw2.setAttribute("placeholder", "Repeat Password...");
-                        }
-                      });
-                    </script>
-                  </div>
-
-                  <button type="submit" class="btn btn-primary btn-user btn-block">
-                    Register Account
-                  </button>
-                </form>
-                
-                <hr>
-                <div class="text-center">
-                  <a class="small" href="{% url 'login' %}">Already have an account? Login!</a>
-                </div>
-                
-              </div>
-            </div>
-            
-          </div>
-        </div>
-      </div>
-      
-    </div>
-
-  </div>
-
-</div>
+<h1> 
+    Register User
+</h1>
 {% endblock content %}
